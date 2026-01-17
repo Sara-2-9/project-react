@@ -19,11 +19,11 @@ export default function Prompt(props: PromptProps) {
     if (!prompt.trim()) return; // Non fare nulla se il testo è vuoto
 
     try {
-      const respose = await generateText({
+      const response = await generateText({
         model: model,
         prompt: prompt,
       });
-      props.setResponse(respose.text);
+      props.setResponse(response.text);
       setPrompt(""); // Pulisci il campo dopo l'invio
     } catch (error) {
       console.error("Errore:", error);
@@ -31,9 +31,11 @@ export default function Prompt(props: PromptProps) {
   };
 
   return (
-    <div className="w-1/2 h-1/6 flex flex-col gap-2 border-2 border-neutral-700 rounded-2xl p-2">
-      <Textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} />
-      <div className="w-full h-full flex items-center justify-end">
+    <div className="w-1/2 h-1/6 flex flex-col gap-2 border-2 border-neutral-700 rounded-2xl p-2 overflow-hidden min-w-0 m-3">
+      <div className="flex-1 min-h-0">
+        <Textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} />
+      </div>
+      <div className="w-full flex items-center justify-end">
         <Button icon={SendIcon} onClick={handleSubmit} />
       </div>
     </div>
