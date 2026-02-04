@@ -31,7 +31,7 @@ export default function Prompt(props: PromptProps) {
   };
 
   return (
-    <div className="w-1/2 h-1/6 flex flex-col gap-2 border-2 border-neutral-700 rounded-2xl p-2 overflow-hidden min-w-0 m-3">
+    <div className="w-1/2 h-1/6 min-h-20 flex flex-col gap-2 border-2 border-neutral-700 rounded-2xl p-2 overflow-hidden min-w-0 m-3">
       <div className="flex-1 min-h-0">
         <Textarea value={prompt} onChange={(e) => setPrompt(e.target.value)} />
       </div>

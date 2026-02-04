@@ -14,3 +14,16 @@ export type TextareaProps = {
 export type PromptProps = {
   setResponse: (value: string) => void;
 }
+
+export type MessageProps = {
+  name: string;
+  text: string;
+  timeLabel?: string;
+}
+
+export type AvatarProps = {
+  name: string;
+  src?: string;
+  size?: "sm" | "md" | "lg";
+  className?: string;
+}
